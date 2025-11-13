@@ -1,0 +1,446 @@
+[
+  {
+    "_id": 53,
+    "value": 53,
+    "label": "Adiantamento a Depositantes",
+    "group": "Adiantamento a Depositantes"
+  },
+  {
+    "_id": 54,
+    "value": 54,
+    "label": "Contrato",
+    "group": "Adiantamento a Depositantes"
+  },
+  {
+    "_id": 21,
+    "value": 21,
+    "label": "Criar novo pedido de consentimento",
+    "group": "Consentimento"
+  },
+  {
+    "_id": 80,
+    "value": 80,
+    "label": "Deletar / Revogar o consentimento identificado por consentId",
+    "group": "Consentimento"
+  },
+  {
+    "_id": 97,
+    "value": 97,
+    "label": "Detalhes da nota de negociação",
+    "group": "Renda Variável"
+  },
+  {
+    "_id": 43,
+    "value": 43,
+    "label": "Empréstimos",
+    "group": "Empréstimos"
+  },
+  {
+    "_id": 110,
+    "value": 110,
+    "label": "Eventos",
+    "group": "Câmbio"
+  },
+  {
+    "_id": 35,
+    "value": 35,
+    "label": "Fatura de Cartão de Crédito",
+    "group": "Cartão de Crédito"
+  },
+  {
+    "_id": 55,
+    "value": 55,
+    "label": "Garantias do Contrato",
+    "group": "Adiantamento a Depositantes"
+  },
+  {
+    "_id": 50,
+    "value": 50,
+    "label": "Garantias do Contrato",
+    "group": "Financiamentos"
+  },
+  {
+    "_id": 60,
+    "value": 60,
+    "label": "Garantias do Contrato",
+    "group": "Direitos Creditórios Descontados"
+  },
+  {
+    "_id": 45,
+    "value": 45,
+    "label": "Garantias do Contrato",
+    "group": "Empréstimos"
+  },
+  {
+    "_id": 38,
+    "value": 38,
+    "label": "Identificação da Conta",
+    "group": "Contas"
+  },
+  {
+    "_id": 31,
+    "value": 31,
+    "label": "Identificação de cartão de crédito",
+    "group": "Cartão de Crédito"
+  },
+  {
+    "_id": 44,
+    "value": 44,
+    "label": "Identificação do Contrato",
+    "group": "Empréstimos"
+  },
+  {
+    "_id": 59,
+    "value": 59,
+    "label": "Identificação do Contrato",
+    "group": "Direitos Creditórios Descontados"
+  },
+  {
+    "_id": 49,
+    "value": 49,
+    "label": "Identificação do Contrato",
+    "group": "Financiamentos"
+  },
+  {
+    "_id": 93,
+    "value": 93,
+    "label": "Identificação do Investimento",
+    "group": "Renda Variável"
+  },
+  {
+    "_id": 104,
+    "value": 104,
+    "label": "Identificação do Investimento",
+    "group": "Fundos de Investimento"
+  },
+  {
+    "_id": 83,
+    "value": 83,
+    "label": "Identificação do Investimento",
+    "group": "Renda Fixa Crédito"
+  },
+  {
+    "_id": 99,
+    "value": 99,
+    "label": "Identificação do Investimento",
+    "group": "Títulos do Tesouro Direto"
+  },
+  {
+    "_id": 88,
+    "value": 88,
+    "label": "Identificação do Investimento",
+    "group": "Renda Fixa Bancária"
+  },
+  {
+    "_id": 109,
+    "value": 109,
+    "label": "Identificação do produto",
+    "group": "Câmbio"
+  },
+  {
+    "_id": 25,
+    "value": 25,
+    "label": "Identificação pessoa jurídica",
+    "group": "Dados cadastrais"
+  },
+  {
+    "_id": 24,
+    "value": 24,
+    "label": "Identificação pessoa natural",
+    "group": "Dados cadastrais"
+  },
+  {
+    "_id": 42,
+    "value": 42,
+    "label": "Limites da Conta",
+    "group": "Contas"
+  },
+  {
+    "_id": 32,
+    "value": 32,
+    "label": "Limites de cartão de crédito",
+    "group": "Cartão de Crédito"
+  },
+  {
+    "_id": 37,
+    "value": 37,
+    "label": "Lista de Contas",
+    "group": "Contas"
+  },
+  {
+    "_id": 58,
+    "value": 58,
+    "label": "Lista de Contratos",
+    "group": "Direitos Creditórios Descontados"
+  },
+  {
+    "_id": 92,
+    "value": 92,
+    "label": "Lista de Investimentos",
+    "group": "Renda Variável"
+  },
+  {
+    "_id": 103,
+    "value": 103,
+    "label": "Lista de Investimentos",
+    "group": "Fundos de Investimento"
+  },
+  {
+    "_id": 82,
+    "value": 82,
+    "label": "Lista de Investimentos",
+    "group": "Renda Fixa Crédito"
+  },
+  {
+    "_id": 98,
+    "value": 98,
+    "label": "Lista de Investimentos",
+    "group": "Títulos do Tesouro Direto"
+  },
+  {
+    "_id": 87,
+    "value": 87,
+    "label": "Lista de Investimentos",
+    "group": "Renda Fixa Bancária"
+  },
+  {
+    "_id": 30,
+    "value": 30,
+    "label": "Lista de cartões de crédito",
+    "group": "Cartão de Crédito"
+  },
+  {
+    "_id": 48,
+    "value": 48,
+    "label": "Lista de financiamentos",
+    "group": "Financiamentos"
+  },
+  {
+    "_id": 108,
+    "value": 108,
+    "label": "Lista de produtos",
+    "group": "Câmbio"
+  },
+  {
+    "_id": 111,
+    "value": 111,
+    "label": "Obter detalhes de extensões feitas no consentimento",
+    "group": "Consentimento"
+  },
+  {
+    "_id": 22,
+    "value": 22,
+    "label": "Obter detalhes do consentimento identificado por consentId",
+    "group": "Consentimento"
+  },
+  {
+    "_id": 23,
+    "value": 23,
+    "label": "Obtém a lista de recursos consentidos pelo cliente",
+    "group": "Resources"
+  },
+  {
+    "_id": 51,
+    "value": 51,
+    "label": "Pagamentos do Contrato",
+    "group": "Financiamentos"
+  },
+  {
+    "_id": 56,
+    "value": 56,
+    "label": "Pagamentos do Contrato",
+    "group": "Adiantamento a Depositantes"
+  },
+  {
+    "_id": 61,
+    "value": 61,
+    "label": "Pagamentos do Contrato",
+    "group": "Direitos Creditórios Descontados"
+  },
+  {
+    "_id": 46,
+    "value": 46,
+    "label": "Pagamentos do Contrato",
+    "group": "Empréstimos"
+  },
+  {
+    "_id": 57,
+    "value": 57,
+    "label": "Parcelas do Contrato",
+    "group": "Adiantamento a Depositantes"
+  },
+  {
+    "_id": 52,
+    "value": 52,
+    "label": "Parcelas do Contrato",
+    "group": "Financiamentos"
+  },
+  {
+    "_id": 47,
+    "value": 47,
+    "label": "Parcelas do Contrato",
+    "group": "Empréstimos"
+  },
+  {
+    "_id": 62,
+    "value": 62,
+    "label": "Parcelas do Contrato",
+    "group": "Direitos Creditórios Descontados"
+  },
+  {
+    "_id": 27,
+    "value": 27,
+    "label": "Qualificação pessoa jurídica",
+    "group": "Dados cadastrais"
+  },
+  {
+    "_id": 26,
+    "value": 26,
+    "label": "Qualificação pessoa natural",
+    "group": "Dados cadastrais"
+  },
+  {
+    "_id": 29,
+    "value": 29,
+    "label": "Relacionamento pessoa jurídica",
+    "group": "Dados cadastrais"
+  },
+  {
+    "_id": 28,
+    "value": 28,
+    "label": "Relacionamento pessoa natural",
+    "group": "Dados cadastrais"
+  },
+  {
+    "_id": 112,
+    "value": 112,
+    "label": "Renovar consentimento",
+    "group": "Consentimento"
+  },
+  {
+    "_id": 84,
+    "value": 84,
+    "label": "Saldos",
+    "group": "Renda Fixa Crédito"
+  },
+  {
+    "_id": 89,
+    "value": 89,
+    "label": "Saldos",
+    "group": "Renda Fixa Bancária"
+  },
+  {
+    "_id": 94,
+    "value": 94,
+    "label": "Saldos",
+    "group": "Renda Variável"
+  },
+  {
+    "_id": 105,
+    "value": 105,
+    "label": "Saldos",
+    "group": "Fundos de Investimento"
+  },
+  {
+    "_id": 100,
+    "value": 100,
+    "label": "Saldos",
+    "group": "Títulos do Tesouro Direto"
+  },
+  {
+    "_id": 39,
+    "value": 39,
+    "label": "Saldos da Conta",
+    "group": "Contas"
+  },
+  {
+    "_id": 90,
+    "value": 90,
+    "label": "Transações",
+    "group": "Renda Fixa Bancária"
+  },
+  {
+    "_id": 101,
+    "value": 101,
+    "label": "Transações",
+    "group": "Títulos do Tesouro Direto"
+  },
+  {
+    "_id": 95,
+    "value": 95,
+    "label": "Transações",
+    "group": "Renda Variável"
+  },
+  {
+    "_id": 106,
+    "value": 106,
+    "label": "Transações",
+    "group": "Fundos de Investimento"
+  },
+  {
+    "_id": 85,
+    "value": 85,
+    "label": "Transações",
+    "group": "Renda Fixa Crédito"
+  },
+  {
+    "_id": 40,
+    "value": 40,
+    "label": "Transações da Conta",
+    "group": "Contas"
+  },
+  {
+    "_id": 33,
+    "value": 33,
+    "label": "Transações de cartão de crédito",
+    "group": "Cartão de Crédito"
+  },
+  {
+    "_id": 36,
+    "value": 36,
+    "label": "Transações de cartão de crédito por fatura",
+    "group": "Cartão de Crédito"
+  },
+  {
+    "_id": 102,
+    "value": 102,
+    "label": "Transações recentes",
+    "group": "Títulos do Tesouro Direto"
+  },
+  {
+    "_id": 86,
+    "value": 86,
+    "label": "Transações recentes",
+    "group": "Renda Fixa Crédito"
+  },
+  {
+    "_id": 96,
+    "value": 96,
+    "label": "Transações recentes",
+    "group": "Renda Variável"
+  },
+  {
+    "_id": 91,
+    "value": 91,
+    "label": "Transações recentes",
+    "group": "Renda Fixa Bancária"
+  },
+  {
+    "_id": 107,
+    "value": 107,
+    "label": "Transações recentes",
+    "group": "Fundos de Investimento"
+  },
+  {
+    "_id": 41,
+    "value": 41,
+    "label": "Transações recentes da Conta",
+    "group": "Contas"
+  },
+  {
+    "_id": 34,
+    "value": 34,
+    "label": "Transações recentes de cartão de crédito",
+    "group": "Cartão de Crédito"
+  }
+]
