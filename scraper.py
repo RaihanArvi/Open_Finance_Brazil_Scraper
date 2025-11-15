@@ -1,5 +1,5 @@
 import json
-import time
+import yaml
 import os
 import requests
 import pickle
@@ -43,6 +43,26 @@ adapter = HTTPAdapter(
 )
 session.mount('https://', adapter)
 session.mount('http://', adapter)
+
+#
+# Mailgun API
+#
+
+yaml_file="config.yaml"
+api_mailgun = ''
+try:
+    with open(yaml_file, "r") as f:
+        config = yaml.safe_load(f)
+
+    if "api_mailgun" not in config:
+        raise KeyError("Missing 'api_mailgun' in YAML file.")
+    api_mailgun = config["api_mailgun"]
+
+except FileNotFoundError:
+    raise FileNotFoundError(f"YAML config file '{yaml_file}' not found.")
+
+except yaml.YAMLError as e:
+    raise ValueError(f"Error parsing YAML file '{yaml_file}': {e}")
 
 #
 # Functions
@@ -89,7 +109,6 @@ def send_webhook_progress(current, total):
     except Exception as e:
         logger.error(f"Failed to send progress webhook: {e}")
 
-api_mailgun = 'a13b20747eeef721c3b64ffe87228388-88b1ca9f-9b63e5b0'
 def send_email_message_w_attachment(message, filename):
 
     with open(filename, "rb") as f:
