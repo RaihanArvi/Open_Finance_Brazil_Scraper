@@ -1,0 +1,9 @@
+For all combinations:
+- organizations_pairs,
+- apis,
+- endpoints,
+- statuses
+
+There are 3205680 combinations.
+
+The list of all combinations were collected from the website on November 12 2025.
