@@ -165,7 +165,6 @@ def save_checkpoint(index, filename="checkpoint.pkl"):
     """Save current progress to resume later."""
     with open(filename, 'wb') as f:
         pickle.dump({'index': index, 'timestamp': datetime.now()}, f)
-    logger.info(f"Checkpoint saved at index {index}")
 
 def load_checkpoint(filename="checkpoint.pkl"):
     """Load the last checkpoint."""
@@ -326,6 +325,7 @@ last_idx = start_index
 
 try:
     for idx, (pair, api, endpoint, status) in enumerate(combinations[start_index:], start=start_index):
+        save_checkpoint(idx)
         try:
             logger.info(f"Processing {idx+1}/{total_combinations}: {pair[0]['label']} -> {pair[1]['label']}, {api['label']}, {endpoint['label']}, status={status}")
 
