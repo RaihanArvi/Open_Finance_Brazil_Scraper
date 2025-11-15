@@ -24,11 +24,12 @@ from datetime import datetime
 start_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 # Set up logging for retry attempts
+os.makedirs("log", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(f'scraper_{start_str}.log'),
+        logging.FileHandler(f'log/scraper_{start_str}.log'),
         logging.StreamHandler()
     ]
 )
@@ -197,7 +198,7 @@ def get_response(pairs, api, endpoint, status, dates: List[str]):
         "User-Agent": "Mozilla/5.0"
     }
 
-    response = session.post(url, json=payload, headers=headers, timeout=50)
+    response = session.post(url, json=payload, headers=headers, timeout=20)
 
     # Raise exception for rate limiting or server errors to trigger retry.
     if response.status_code in [429, 500, 502, 503, 504]:
