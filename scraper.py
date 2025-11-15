@@ -1,13 +1,13 @@
 import json
 import random
 import time
-
 import yaml
 import os
 import requests
 import pickle
 import itertools
 import logging
+from google.cloud import bigquery
 from requests.adapters import HTTPAdapter
 from tenacity import (
     retry,
@@ -54,6 +54,9 @@ session.mount('http://', adapter)
 
 yaml_file="config.yaml"
 api_mailgun = ''
+bigquery_json = None
+table_id = ""
+
 try:
     with open(yaml_file, "r") as f:
         config = yaml.safe_load(f)
@@ -62,11 +65,16 @@ try:
         raise KeyError("Missing 'api_mailgun' in YAML file.")
     api_mailgun = config["api_mailgun"]
 
+    bigquery_json = config["bigquery_json"]
+    table_id = config["bigquery_table_id"]
+
 except FileNotFoundError:
     raise FileNotFoundError(f"YAML config file '{yaml_file}' not found.")
 
 except yaml.YAMLError as e:
     raise ValueError(f"Error parsing YAML file '{yaml_file}': {e}")
+
+bq_client = bigquery.Client.from_service_account_json(bigquery_json)
 
 #
 # Functions
@@ -220,6 +228,27 @@ def safe_json(response, idx):
         )
         raise
 
+
+def insert_row(idx, pair, api, endpoint, status, response_codes, values):
+    try:
+        row = {
+            "index": idx,
+            "receiver": pair[0]["label"],
+            "transmitter": pair[1]["label"],
+            "api": api["label"],
+            "endpoint": endpoint["label"],
+            "status": status,
+            "response_status_codes": str(response_codes),
+            "data_points": json.dumps(values),
+        }
+
+        errors = bq_client.insert_rows_json(table_id, [row])
+        if errors:
+            raise Exception(f"Failed to insert row: {errors}")
+    except Exception as e:
+        print("Error:", e)
+
+
 #
 # Data
 #
@@ -309,6 +338,9 @@ try:
                 values = values + safe_json(response, idx=idx)
 
                 time.sleep(0.05)
+
+            # Big Query
+            insert_row(idx, pair, api, endpoint, status, response_codes, values)
 
             api_request = APIRequestCombination(
                 index = idx,

@@ -1,1 +1,3 @@
 api_mailgun: ""
+bigquery_json: ""
+bigquery_table_id: ""
