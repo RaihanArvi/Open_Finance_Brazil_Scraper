@@ -306,7 +306,7 @@ try:
                 response = get_response(pair, api, endpoint, status, dates)
 
                 response_codes.append(response.status_code)
-                values = values + safe_json(response.json(), idx=idx)
+                values = values + safe_json(response, idx=idx)
 
                 time.sleep(0.1)
 
