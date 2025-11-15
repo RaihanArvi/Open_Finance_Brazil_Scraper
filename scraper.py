@@ -308,7 +308,7 @@ try:
                 response_codes.append(response.status_code)
                 values = values + safe_json(response, idx=idx)
 
-                time.sleep(0.1)
+                time.sleep(0.05)
 
             api_request = APIRequestCombination(
                 index = idx,
@@ -346,7 +346,7 @@ try:
                 cst_msg = f"OpenFinanceBrazil Milestone Temporary Data: {idx+1}/{total_combinations} combinations processed. File is attached."
                 send_email_message_w_attachment(cst_msg, temp_file)
 
-            time.sleep(random.uniform(0.2, 0.5))
+            time.sleep(random.uniform(0.1, 0.3))
 
 
         except KeyboardInterrupt:
