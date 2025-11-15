@@ -1,4 +1,7 @@
 import json
+import random
+import time
+
 import yaml
 import os
 import requests
@@ -207,6 +210,16 @@ def get_response(pairs, api, endpoint, status, dates: List[str]):
 
     return response
 
+def safe_json(response, idx):
+    try:
+        return response.json()
+    except Exception as e:
+        logger.error(
+            f"[JSON ERROR] Failed to parse JSON at index {idx}. "
+            f"Raw response: {repr(response.text)}"
+        )
+        raise
+
 #
 # Data
 #
@@ -293,7 +306,9 @@ try:
                 response = get_response(pair, api, endpoint, status, dates)
 
                 response_codes.append(response.status_code)
-                values = values + response.json()
+                values = values + safe_json(response.json(), idx=idx)
+
+                time.sleep(0.1)
 
             api_request = APIRequestCombination(
                 index = idx,
@@ -330,6 +345,8 @@ try:
             if (idx + 1) % 15000 == 0:
                 cst_msg = f"OpenFinanceBrazil Milestone Temporary Data: {idx+1}/{total_combinations} combinations processed. File is attached."
                 send_email_message_w_attachment(cst_msg, temp_file)
+
+            time.sleep(random.uniform(0.2, 0.5))
 
 
         except KeyboardInterrupt:
