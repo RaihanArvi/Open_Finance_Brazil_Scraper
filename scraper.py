@@ -89,7 +89,7 @@ def send_webhook_progress(current, total):
     except Exception as e:
         logger.error(f"Failed to send progress webhook: {e}")
 
-api_mailgun = ''
+api_mailgun = 'a13b20747eeef721c3b64ffe87228388-88b1ca9f-9b63e5b0'
 def send_email_message_w_attachment(message, filename):
 
     with open(filename, "rb") as f:
