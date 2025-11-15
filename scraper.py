@@ -89,7 +89,7 @@ def send_webhook_progress(current, total):
     except Exception as e:
         logger.error(f"Failed to send progress webhook: {e}")
 
-api_mailgun = 'a13b20747eeef721c3b64ffe87228388-88b1ca9f-9b63e5b0'
+api_mailgun = ''
 def send_email_message_w_attachment(message, filename):
 
     with open(filename, "rb") as f:
@@ -296,7 +296,6 @@ try:
             temp_file = f"temp/open_finance_brazil_temp-{start_str}.json"
             with open(temp_file, "w") as f:
                 f.write(output_temp.model_dump_json(indent=2))
-            logger.info(f"Saved intermediate results to {temp_file}")
 
             # Send milestone notifications every 1000 iterations.
             if (idx + 1) % 1000 == 0:
@@ -339,7 +338,7 @@ finally:
     if requests_list:
         output = APIRequestAllCombinations(api_requests=requests_list)
         finish_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        output_file = f"output/open_finance_brazil-{finish_time}-{last_idx}-out_of-{total_combinations}.json"
+        output_file = f"output/open_finance_brazil-{finish_time}-processed-{last_idx}-out_of-{total_combinations}.json"
 
         with open(output_file, "w") as f:
             f.write(output.model_dump_json(indent=2))
