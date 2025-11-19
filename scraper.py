@@ -358,11 +358,17 @@ try:
 
             # Save checkpoint every time.
             save_checkpoint(idx + 1)
-            # Save intermediate results
-            output_temp = APIRequestAllCombinations(api_requests=requests_list)
-            temp_file = f"temp/open_finance_brazil_temp-{start_str}.json"
-            with open(temp_file, "w") as f:
-                f.write(output_temp.model_dump_json(indent=2))
+
+            # Save intermediate results every 50k iterations. Reset requests_list every 50k iterations.
+            if (idx + 1) % 50000 == 0:
+                output_temp = APIRequestAllCombinations(api_requests=requests_list)
+                finish_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                temp_file = f"temp/open_finance_brazil_intermediate_results-start_time={start_str}-finish_time={finish_time}-start_index={start_index}-last_index={idx}.json"
+                with open(temp_file, "w") as f:
+                    f.write(output_temp.model_dump_json(indent=2))
+
+                # reset requests_list
+                requests_list = []
 
             # Send milestone notifications every 1000 iterations.
             if (idx + 1) % 1000 == 0:
@@ -376,7 +382,7 @@ try:
             # Send temp every 15000 iterations.
             if (idx + 1) % 15000 == 0:
                 cst_msg = f"OpenFinanceBrazil Milestone Temporary Data: {idx+1}/{total_combinations} combinations processed. File is attached."
-                send_email_message_w_attachment(cst_msg, temp_file)
+                #send_email_message_w_attachment(cst_msg, temp_file)
 
             time.sleep(random.uniform(0.1, 0.3))
 
@@ -391,7 +397,7 @@ try:
         except Exception as e:
             logger.error(f"Error processing combination {idx}: {e}", exc_info=True)
             send_webhook_error(f"Error processing combination {idx}: {e}. Stopping.")
-            send_simple_email_message(f"Error processing combination {idx}: {e}. Stopping.")
+            #send_simple_email_message(f"Error processing combination {idx}: {e}. Stopping.")
 
             last_idx = idx
             save_checkpoint(idx)
@@ -403,11 +409,11 @@ except KeyboardInterrupt:
 except Exception as e:
     logger.error(f"Fatal error in main loop: {e}", exc_info=True)
 finally:
-    # save final output
+    # save final output if interrupted. does not include all entries. only includes entries up to last temp file.
     if requests_list:
         output = APIRequestAllCombinations(api_requests=requests_list)
         finish_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        output_file = f"output/open_finance_brazil-{finish_time}-processed-{last_idx}-out_of-{total_combinations}.json"
+        output_file = f"output/open_finance_brazil_final_processed-start_time={start_str}-finish_time={finish_time}-start_index={start_index}-last_index={last_idx}-out_of={total_combinations}.json"
 
         with open(output_file, "w") as f:
             f.write(output.model_dump_json(indent=2))
@@ -416,7 +422,7 @@ finally:
         logger.info(f"Successfully processed {len(requests_list)} combinations")
 
         send_webhook_custom(f"Successfully processed {len(requests_list)} combinations out of {total_combinations} total combinations. Saved to {output_file} at {finish_time}.")
-        send_email_message_w_attachment(f"Successfully processed {len(requests_list)} combinations out of {total_combinations} total combinations. Saved to {output_file} at {finish_time}.", output_file)
+        #send_email_message_w_attachment(f"Successfully processed {len(requests_list)} combinations out of {total_combinations} total combinations. Saved to {output_file} at {finish_time}.", output_file)
 
         send_webhook_finish(finish_time)
     else:
