@@ -374,15 +374,15 @@ try:
             if (idx + 1) % 1000 == 0:
                 send_webhook_progress(idx + 1, total_combinations)
 
-            # Send progress at specific percentages.
-            percent_complete = ((idx + 1) / total_combinations) * 100
-            if int(percent_complete) in [5,10,15,20,25,35,50,60,75,85,90,95,98]:
-                send_webhook_progress(idx + 1, total_combinations)
+            # # Send progress at specific percentages.
+            # percent_complete = ((idx + 1) / total_combinations) * 100
+            # if int(percent_complete) in [5,10,15,20,25,35,50,60,75,85,90,95,98]:
+            #     send_webhook_progress(idx + 1, total_combinations)
 
             # Send temp every 15000 iterations.
-            if (idx + 1) % 15000 == 0:
-                cst_msg = f"OpenFinanceBrazil Milestone Temporary Data: {idx+1}/{total_combinations} combinations processed. File is attached."
-                #send_email_message_w_attachment(cst_msg, temp_file)
+            # if (idx + 1) % 15000 == 0:
+            #     cst_msg = f"OpenFinanceBrazil Milestone Temporary Data: {idx+1}/{total_combinations} combinations processed. File is attached."
+            #     #send_email_message_w_attachment(cst_msg, temp_file)
 
             time.sleep(random.uniform(0.1, 0.3))
 
